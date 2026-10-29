@@ -15,8 +15,8 @@ También puedes abrir `index.html` con doble clic en el navegador.
 - `styles.css`: los colores están al inicio, en `:root` (`--rose`, `--petal`, `--berry`, `--lilac`...).
 - `index.html`: la estructura de las secciones y los títulos.
 
-## Para fotos propias
-Crea una carpeta `img/`, guarda ahí tus fotos y agrégalas en `index.html` con una etiqueta `<img src="img/foto1.jpg" alt="Nosotros">`.
+## Para agregar fotos
+Guarda tus imágenes en `primer-mes/primer-mes/img/`. Para que aparezcan en la galería de la portada, agrega otro bloque `<figure class="hero-photo">` dentro de `<div class="hero-photos">` en `index.html`, cambiando el nombre del archivo y el texto `alt`.
 
 ## Publicación en GitHub Pages
 El repositorio publica automáticamente esta carpeta en GitHub Pages cuando se actualiza la rama `main`. Antes de la primera publicación, habilita Pages en **Settings > Pages**, seleccionando **GitHub Actions** como origen. Después puedes iniciar la publicación manualmente desde **Actions > Deploy to GitHub Pages > Run workflow**.
