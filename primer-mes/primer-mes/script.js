@@ -9,9 +9,9 @@ const CONFIG = {
     "Este es solo el primer mes. Tengo muchas ganas de que vengan muchos más."
   ],
   canciones: [
-    { titulo: "Eres", artista: "Café Tacvba", nota: "Es lo que tu significas para mi." },
-    { titulo: "Nada Valgo Sin Tu Amor", artista: "Juanes", nota: "Lo valiosa que eres en mi vida." },
-    { titulo: "Cada Día Que Pasa", artista: "Guayacán Orquesta", nota: "Así me siento cuando estoy contigo." }
+    { titulo: "Eres", artista: "Café Tacvba", nota: "Es lo que tu significas para mi.", spotifyUri: "spotify:track:6kdCN6gTWLcLxmLXoUcwuI", spotifyUrl: "https://open.spotify.com/track/6kdCN6gTWLcLxmLXoUcwuI" },
+    { titulo: "Nada Valgo Sin Tu Amor", artista: "Juanes", nota: "Lo valiosa que eres en mi vida.", spotifyUri: "spotify:track:6QdwofpqDvvNxX88C9A0iQ", spotifyUrl: "https://open.spotify.com/track/6QdwofpqDvvNxX88C9A0iQ" },
+    { titulo: "Cada Día Que Pasa", artista: "Guayacán Orquesta", nota: "Así me siento cuando estoy contigo.", spotifyUri: "spotify:track:4kxdHesYx9gy5d9vfvLZcm", spotifyUrl: "https://open.spotify.com/track/4kxdHesYx9gy5d9vfvLZcm" }
   ],
   gustos: [
     { id: "Humor", titulo: "Tu Personalidad", sub: "Brillante y mágica", atras: "Siempre eres tan divertida y encantadora." },
@@ -66,23 +66,69 @@ const vinyl = '<svg viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy=
   + '<circle cx="60" cy="60" r="22" fill="#FF8FB5"/>'
   + '<path transform="translate(48 48) scale(1)" d="M12 21C3 14 1 8 5 5c3-2 6 0 7 2 1-2 4-4 7-2 4 3 2 9-7 16Z" fill="#fff"/>'
   + '<circle cx="60" cy="60" r="3" fill="#FFF0F5"/></svg>';
-$('songs').innerHTML = CONFIG.canciones.map(s => {
-  const q = encodeURIComponent((s.titulo + ' ' + (s.artista || '')).trim());
+$('songs').innerHTML = CONFIG.canciones.map((s, i) => {
   return '<article class="song">'
-    + '<button class="disc" type="button" aria-label="Girar disco de ' + esc(s.titulo) + '">' + vinyl + '</button>'
+    + '<button class="disc" type="button" aria-label="Cargando Spotify para ' + esc(s.titulo) + '" aria-pressed="false" disabled>' + vinyl + '</button>'
     + '<div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i></div>'
     + '<h3>' + esc(s.titulo) + '</h3>'
     + (s.artista ? '<p class="by">' + esc(s.artista) + '</p>' : '')
     + '<p class="note">' + esc(s.nota) + '</p>'
-    + '<a class="listen" href="https://open.spotify.com/search/' + q + '" target="_blank" rel="noopener">Escucharla</a>'
+    + '<div class="spotify-player" id="spotify-player-' + i + '" aria-label="Reproductor de ' + esc(s.titulo) + '"></div>'
+    + '<p class="spotify-status" id="spotify-status-' + i + '" role="status" aria-live="polite">Cargando reproductor de Spotify...</p>'
+    + '<a class="listen" href="' + esc(s.spotifyUrl) + '" target="_blank" rel="noopener">Abrir en Spotify</a>'
     + '</article>';
 }).join('');
+
+const spotifyControllers = new Map();
+window.onSpotifyIframeApiReady = IFrameAPI => {
+  CONFIG.canciones.forEach((s, i) => {
+    const card = $('songs').children[i];
+    const button = card.querySelector('.disc');
+    const status = $('spotify-status-' + i);
+    try {
+      IFrameAPI.createController($('spotify-player-' + i), {
+        uri: s.spotifyUri,
+        width: '100%',
+        height: 152
+      }, controller => {
+        spotifyControllers.set(card, controller);
+        button.disabled = false;
+        button.setAttribute('aria-label', 'Reproducir ' + s.titulo);
+        status.hidden = true;
+        controller.addListener('playback_update', event => {
+          const playing = !event.data.isPaused;
+          card.classList.toggle('playing', playing);
+          button.setAttribute('aria-pressed', playing ? 'true' : 'false');
+          button.setAttribute('aria-label', (playing ? 'Pausar ' : 'Reproducir ') + s.titulo);
+        });
+      });
+    } catch (error) {
+      console.error('No se pudo crear el reproductor de Spotify para ' + s.titulo, error);
+      status.textContent = 'No se pudo cargar el reproductor. Puedes abrir la canción en Spotify.';
+    }
+  });
+};
+
+const spotifyApiScript = document.createElement('script');
+spotifyApiScript.src = 'https://open.spotify.com/embed/iframe-api/v1';
+spotifyApiScript.async = true;
+spotifyApiScript.onerror = () => {
+  CONFIG.canciones.forEach((_, i) => {
+    $('spotify-status-' + i).textContent = 'No se pudo conectar con Spotify. Puedes abrir la canción desde su enlace.';
+  });
+};
+document.head.append(spotifyApiScript);
+
 $('songs').addEventListener('click', e => {
   const b = e.target.closest('.disc'); if (!b) return;
   const card = b.closest('.song');
-  const was = card.classList.contains('playing');
-  document.querySelectorAll('.song.playing').forEach(c => c.classList.remove('playing'));
-  if (!was) { card.classList.add('playing'); const r = b.getBoundingClientRect(); burst(r.left + r.width / 2, r.top + r.height / 2, 14); }
+  const controller = spotifyControllers.get(card);
+  if (!controller) return;
+  if (!card.classList.contains('playing')) {
+    const r = b.getBoundingClientRect();
+    burst(r.left + r.width / 2, r.top + r.height / 2, 14);
+  }
+  controller.togglePlay();
 });
 
 /* ---------- Likes ---------- */

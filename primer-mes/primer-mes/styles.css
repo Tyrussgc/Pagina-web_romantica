@@ -96,6 +96,8 @@ h2{font-family:var(--font-display);font-weight:400;font-size:clamp(1.8rem,6.5vw,
 .song h3{margin:.3rem 0 0;font-size:1.25rem;font-weight:600;color:var(--ink);overflow-wrap:anywhere}
 .song .by{margin:0;font-family:var(--font-hand);font-size:1.2rem;color:var(--grape);font-weight:700}
 .song .note{margin:.1rem 0 0;color:var(--ink-soft);font-size:.98rem}
+.spotify-player{width:100%;min-height:152px;overflow:hidden;border-radius:12px}
+.spotify-status{font-size:.9rem;color:var(--ink-soft);margin:0}
 .eq{display:flex;gap:4px;height:18px;align-items:flex-end;opacity:.35}
 .eq i{display:block;width:5px;height:6px;border-radius:3px;background:var(--rose)}
 .song.playing .eq{opacity:1}

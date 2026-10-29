@@ -10,7 +10,8 @@ Página web de regalo para mi pareja.
 También puedes abrir `index.html` con doble clic en el navegador.
 
 ## Qué editar
-- `script.js`: al inicio está el objeto `CONFIG`. Ahí cambias el nombre de ella, tu nombre, la fecha de inicio, el texto de la carta, las canciones, las tarjetas de gustos y las seis razones.
+- `script.js`: al inicio está el objeto `CONFIG`. Ahí cambias el nombre de ella, tu nombre, la fecha de inicio, el texto de la carta, las canciones, sus enlaces de Spotify, las tarjetas de gustos y las seis razones.
+- Los discos controlan los reproductores oficiales de Spotify. Se necesita conexión a internet; la disponibilidad y el inicio de reproducción dependen de Spotify y de la cuenta del visitante.
 - `styles.css`: los colores están al inicio, en `:root` (`--rose`, `--petal`, `--berry`, `--lilac`...).
 - `index.html`: la estructura de las secciones y los títulos.
 
