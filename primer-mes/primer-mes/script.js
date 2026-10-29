@@ -14,9 +14,9 @@ const CONFIG = {
     { titulo: "Cada Día Que Pasa", artista: "Guayacán Orquesta", nota: "Así me siento cuando estoy contigo." }
   ],
   gustos: [
-    { id: "bts", titulo: "BTS", sub: "borahae", atras: "Tu música favorita, y lo feliz que te ves cuando suena." },
-    { id: "bow", titulo: "Hello Kitty", sub: "lazos y cosas lindas", atras: "Todo lo tierno que te hace sonreír." },
-    { id: "sparkle", titulo: "Rosa pastel", sub: "tu color", atras: "Y cómo se ilumina todo cuando estás cerca." }
+    { id: "Humor", titulo: "Tu Personalidad", sub: "Brillante y mágica", atras: "Siempre eres tan divertida y encantadora." },
+    { id: "Sentimiento", titulo: "Tu sensibilidad", sub: "Profunda y emotiva", atras: "Amo la forma en como me amas." },
+    { id: "Amor", titulo: "Tu amor", sub: "Incondicional y apasionado", atras: "Mi corazón te pertece y con él todo mi amor." }
   ],
   razones: [
     "Porque contigo hasta un día normal se siente bonito.",
