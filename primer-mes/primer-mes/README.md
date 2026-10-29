@@ -18,6 +18,6 @@ También puedes abrir `index.html` con doble clic en el navegador.
 Crea una carpeta `img/`, guarda ahí tus fotos y agrégalas en `index.html` con una etiqueta `<img src="img/foto1.jpg" alt="Nosotros">`.
 
 ## Publicación en GitHub Pages
-El repositorio publica automáticamente esta carpeta en GitHub Pages cuando se actualiza la rama `main`. También puedes iniciar la publicación manualmente desde **Actions > Deploy to GitHub Pages > Run workflow**.
+El repositorio publica automáticamente esta carpeta en GitHub Pages cuando se actualiza la rama `main`. El workflow intenta habilitar Pages en su primera ejecución. También puedes iniciar la publicación manualmente desde **Actions > Deploy to GitHub Pages > Run workflow**.
 
-La primera vez, revisa en **Settings > Pages** que el origen de publicación esté configurado como **GitHub Actions**. Cuando termine correctamente el workflow, encontrarás el enlace en **Settings > Pages** y en el resumen de la ejecución.
+Cuando termine correctamente el workflow, encontrarás el enlace en **Settings > Pages** y en el resumen de la ejecución.
