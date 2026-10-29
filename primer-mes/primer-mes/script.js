@@ -11,7 +11,7 @@ const CONFIG = {
   canciones: [
     { titulo: "Eres", artista: "Café Tacvba", nota: "Es lo que tu significas para mi." },
     { titulo: "Nada Valgo Sin Tu Amor", artista: "Juanes", nota: "Lo valiosa que eres en mi vida." },
-    { titulo: "Euphoria", artista: "BTS", nota: "Así me siento cuando estoy contigo." }
+    { titulo: "Cada Día Que Pasa", artista: "Guayacán Orquesta", nota: "Así me siento cuando estoy contigo." }
   ],
   gustos: [
     { id: "bts", titulo: "BTS", sub: "borahae", atras: "Tu música favorita, y lo feliz que te ves cuando suena." },
