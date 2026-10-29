@@ -108,15 +108,15 @@ h2{font-family:var(--font-display);font-weight:400;font-size:clamp(1.8rem,6.5vw,
 
 /* Flip cards */
 .likes{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem}
-.flip{perspective:900px;appearance:none;border:0;background:none;padding:0;height:280px;cursor:pointer;font:inherit;color:inherit;width:100%;text-align:center}
-.flip-in{position:relative;width:100%;height:100%;transition:transform .7s ease;transform-style:preserve-3d}
-.flip.flipped .flip-in{transform:rotateY(180deg)}
+.flip{perspective:900px;-webkit-perspective:900px;appearance:none;border:0;background:none;padding:0;height:280px;cursor:pointer;touch-action:manipulation;font:inherit;color:inherit;width:100%;text-align:center}
+.flip-in{position:relative;width:100%;height:100%;transition:transform .7s ease;-webkit-transform-style:preserve-3d;transform-style:preserve-3d}
+.flip.flipped .flip-in{-webkit-transform:rotateY(180deg);transform:rotateY(180deg)}
 .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:28px;padding:1.2rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem}
 .front{background:var(--paper);box-shadow:var(--shadow)}
 .front svg{width:112px;height:auto}
 .front h3{margin:0;font-family:var(--font-display);font-weight:400;font-size:1.5rem;color:var(--berry)}
 .front small{font-family:var(--font-hand);font-size:1.15rem;color:var(--ink-soft)}
-.back{background:linear-gradient(160deg,var(--petal),var(--lilac));transform:rotateY(180deg);box-shadow:var(--shadow);font-family:var(--font-hand);font-size:1.4rem;line-height:1.35;font-weight:700;color:var(--ink)}
+.back{background:linear-gradient(160deg,var(--petal),var(--lilac));-webkit-transform:rotateY(180deg);transform:rotateY(180deg);box-shadow:var(--shadow);font-family:var(--font-hand);font-size:1.4rem;line-height:1.35;font-weight:700;color:var(--ink)}
 .back span{display:block;max-width:20ch}
 
 /* Reasons */
