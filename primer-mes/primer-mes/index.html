@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nuestro primer mes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Gaegu:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 21C3 14 1 8 5 5c3-2 6 0 7 2 1-2 4-4 7-2 4 3 2 9-7 16Z"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M5 9l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<main>
+  <header class="hero" id="top">
+    <svg class="bow-top" viewBox="0 0 120 110" aria-hidden="true">
+      <path d="M60 52C40 16 6 20 8 50c2 30 34 28 52 2Z" fill="#FF8FB5"/>
+      <path d="M60 52c20-36 54-32 52-2-2 30-34 28-52 2Z" fill="#FF8FB5"/>
+      <path d="M52 62 36 100l22-10Z" fill="#FF7AA6"/>
+      <path d="M68 62l16 38-22-10Z" fill="#FF7AA6"/>
+      <circle cx="60" cy="52" r="12" fill="#C93B78"/>
+      <circle cx="30" cy="42" r="3.5" fill="#fff" opacity=".85"/>
+      <circle cx="24" cy="56" r="3" fill="#fff" opacity=".85"/>
+      <circle cx="90" cy="42" r="3.5" fill="#fff" opacity=".85"/>
+      <circle cx="96" cy="56" r="3" fill="#fff" opacity=".85"/>
+    </svg>
+    <p class="eyebrow">28 · octubre · 2026</p>
+    <h1>Feliz primer mes, <span class="name" data-ella>mi amor</span></h1>
+    <p class="lead">Hice esta página solo para ti.</p>
+    <div class="count" role="timer" aria-label="Tiempo juntos">
+      <div><b id="c-d">0</b><span>días</span></div>
+      <div><b id="c-h">0</b><span>horas</span></div>
+      <div><b id="c-m">0</b><span>min</span></div>
+      <div><b id="c-s">0</b><span>seg</span></div>
+    </div>
+    <p class="since">juntos desde el 28 de septiembre</p>
+    <a class="hint" href="#carta">Baja, hay más <svg><use href="#i-chev"/></svg></a>
+  </header>
+
+  <section id="carta" aria-labelledby="h-carta">
+    <div class="sec-head">
+      <h2 id="h-carta">Una carta para ti</h2>
+      <p>Toca el sobre para abrirlo.</p>
+    </div>
+    <div class="letter-card" id="letterCard">
+      <button class="env" id="envBtn" aria-expanded="false" aria-controls="letter" aria-label="Abrir la carta" style="border:0;background:none;padding:0;cursor:pointer">
+        <span class="env-body"></span>
+        <span class="env-flap"></span>
+        <span class="seal"><svg><use href="#i-heart"/></svg></span>
+      </button>
+      <div class="letter-wrap" id="letter">
+        <div class="letter-clip">
+          <div class="paper" id="paper"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="canciones" aria-labelledby="h-songs">
+    <div class="sec-head">
+      <h2 id="h-songs">Canciones que me recuerdan a ti</h2>
+      <p>Toca el disco para que gire.</p>
+    </div>
+    <div class="songs" id="songs"></div>
+  </section>
+
+  <section id="gustos" aria-labelledby="h-likes">
+    <div class="sec-head">
+      <h2 id="h-likes">Tus cosas favoritas</h2>
+      <p>Voltea cada tarjeta.</p>
+    </div>
+    <div class="likes" id="likes"></div>
+  </section>
+
+  <section id="razones" aria-labelledby="h-why">
+    <div class="sec-head">
+      <h2 id="h-why">Por qué me gustas tanto</h2>
+      <p>Descubre los seis corazones.</p>
+    </div>
+    <div class="reasons" id="reasons"></div>
+    <p class="progress" id="progress" aria-live="polite">0 de 6 descubiertos</p>
+  </section>
+
+  <section id="pregunta" aria-labelledby="h-ask">
+    <div class="ask">
+      <h2 id="h-ask">¿Seguimos otro mes juntos?</h2>
+      <div class="answers" id="answers">
+        <button class="btn" id="yes" type="button">Sí, claro</button>
+        <button class="btn soft" id="no" type="button">No</button>
+      </div>
+      <p class="yes-msg" id="yesMsg" hidden></p>
+    </div>
+  </section>
+
+  <footer>Hecho con cariño por <span data-tu>Ivan</span> · 28.10.2026</footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
