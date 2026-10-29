@@ -5,7 +5,7 @@ const CONFIG = {
   carta: [
     "Hola, Sofia.",
     "Hoy se cumple un mes desde que empezamos este maravilloso viaje juntos y quise regalarte algo que sea muy nuestro. Esta página es un regalo especialmente para ti donde puedo expresar en colores y canciones todo lo que siento por ti.",
-    "Gracias por la paz, por las risas, los abrazos, las sonrisas y por dejarme entrar en tu mundo, con tu música y todo lo que te gusta.",
+    "Gracias por la paz, por las risas, los abrazos, las sonrisas y por dejarme entrar en tu mundo, por mostrarme todo lo que te gusta, tus pasiones y tus hermosas virtudes.",
     "Este es solo el primer mes. Tengo muchas ganas de que vengan muchos más."
   ],
   canciones: [
