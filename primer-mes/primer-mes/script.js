@@ -6,7 +6,8 @@ const CONFIG = {
     "Hola, Sofia.",
     "Hoy se cumple un mes desde que empezamos este maravilloso viaje juntos y quise regalarte algo que sea muy nuestro. Esta página es un regalo especialmente para ti donde puedo expresar en colores y canciones todo lo que siento por ti.",
     "Gracias por la paz, por las risas, los abrazos, las sonrisas y por dejarme entrar en tu mundo, por mostrarme todo lo que te gusta, tus pasiones y tus hermosas virtudes.",
-    "Este es solo el primer mes. Tengo muchas ganas de que vengan muchos más."
+    "Este es solo el inicio de algo muy hermoso que siempre será maravilloso, el cual se convirtio en un sueño sin fin, del cual no quiero despertar y lo quiero vivir contigo hasta el final de los tiempos.",
+    "Te amo con todo mi corazón y espero que este regalo te haga sonreír y sentirte especial, porque eso es lo que eres para mi.",
   ],
   canciones: [
     { titulo: "Eres", artista: "Café Tacvba", nota: "Es lo que tu significas para mi.", spotifyUri: "spotify:track:6kdCN6gTWLcLxmLXoUcwuI", spotifyUrl: "https://open.spotify.com/track/6kdCN6gTWLcLxmLXoUcwuI" },
